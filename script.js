@@ -20,7 +20,7 @@ const d =60;*/
 
 alert(a[1][1][2]);*/
 
-function sum(a=0, b=0){
+/*function sum(a=0, b=0){
 	return a+b;
 }
 
@@ -31,7 +31,7 @@ var f2 = function(a=0, b=0){
 //ES6
 var f3 = (a=0, b=0)=>{
 	alert('f3 calling');
-}
+}*/
 
 //ES6
 var f4 = color => color;
