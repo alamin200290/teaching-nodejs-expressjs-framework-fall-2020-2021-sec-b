@@ -13,14 +13,17 @@ router.post('/create', (req, res)=>{
 	//req.body.email
 	//req.body.dept
 
-	res.send('posted'); 
+	//res.send('posted');
+	res.redirect('/home/userlist'); 
 })
 
 
 router.get('/edit/:id', (req, res)=>{
 
-	var data = req.params.id;
-	res.send(data);
+	//var data = req.params.id;
+	//res.send(data);
+
+	res.redirect('/home/userlist');
 })
 
 
