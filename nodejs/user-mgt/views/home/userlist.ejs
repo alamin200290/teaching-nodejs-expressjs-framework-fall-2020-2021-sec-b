@@ -26,8 +26,8 @@
 			<td><%= userlist[i][2] %></td>
 			<td><%= userlist[i][3] %></td>
 			<td>
-				<a href="/user/edit/<%= userlist[i][0] %>">Edit</a> | 
-				<a href="">Delete</a>  
+				<a href="/user/edit/<%=userlist[i][0]%>">Edit</a> | 
+				<a href="/user/delete/<%=userlist[i][0]%>">Delete</a>  
 			</td>
 		</tr>
 		<% } %>

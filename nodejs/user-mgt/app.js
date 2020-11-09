@@ -13,6 +13,7 @@ const app 			= express();
 app.set('view engine', 'ejs');
 
 //middleware
+app.use('/abc', express.static('assets'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(exSession({secret: 'my secret value', saveUninitialized: true, resave: false }));
 app.use(cookieParser());
