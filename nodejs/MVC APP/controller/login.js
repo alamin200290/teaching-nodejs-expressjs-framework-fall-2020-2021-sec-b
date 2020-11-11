@@ -1,5 +1,5 @@
 const express 	= require('express');
-const db		= require.main.require('./models/db');
+const userModel	= require.main.require('./models/userModel');
 const router 	= express.Router();
 
 router.get('/', (req, res)=>{
@@ -8,15 +8,20 @@ router.get('/', (req, res)=>{
 
 router.post('/', (req, res)=>{
 
-	var sql = "select * from user where username='"+req.body.username+"' and password='"+req.body.password+"'";
-	db.getResults(sql, function(results){
-		if(results.length > 0 ){
+	var user = {
+		username: req.body.username,
+		password: req.body.password
+	};
+
+	userModel.validate(user, function(status){
+		if(status){
 			res.cookie('uname', req.body.username);
-			res.redirect('/home');		
+			res.redirect('/home');	
 		}else{
 			res.redirect('/login');
 		}
 	});
+
 })
 
 module.exports = router;
