@@ -7,6 +7,7 @@ const login			= require('./controller/login');
 const home			= require('./controller/home');
 const logout		= require('./controller/logout');
 const user			= require('./controller/user');
+const admin			= require('./controller/admin');
 const app 			= express();
 
 //config
@@ -27,6 +28,7 @@ app.use('/user', user);
 app.get('/', (req, res)=>{
 	res.send('Hello from express server');	
 });
+
 
 //server startup
 app.listen(3000, (error)=>{

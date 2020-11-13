@@ -3,6 +3,7 @@
 <head>
 	<title>Home Page</title>
 	<link rel="stylesheet" type="text/css" href="/abc/css/style.css">
+	<script type="text/javascript" src="/abc/js/jquery-3.5.1.js"></script>
 </head>
 <body>
 	<h1>This is home page</h1>
@@ -10,6 +11,35 @@
 	<a href="/user/create">Create New User</a> |
 	<a href="/home/userlist">User list</a> |
 	<a href="/logout">logout</a>
+
+	<form>
+		<input type="text" name="searchkey">
+		<input type="button" name="search" value="Search">
+	</form>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			
+			$('input[type=button]').click(function(){
+
+				var key = $('input[type=text]').val();
+				$.ajax({
+					url: '/user/search/'+key,
+					type: 'GET',
+					data: abc,
+					success: function(response){
+						alert(response);
+					},
+					error: function(error){
+
+					}
+				});
+
+			});			
+		});
+
+	</script>
 
 </body>
 </html>

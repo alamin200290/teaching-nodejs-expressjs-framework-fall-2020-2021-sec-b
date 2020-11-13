@@ -22,6 +22,7 @@ function getConnection(callback){
 
 module.exports = {
 	getResults : function(sql, callback){
+
 		getConnection(function(connection){
 			connection.query(sql, function (error, results) { 
 				callback(results);
@@ -30,7 +31,8 @@ module.exports = {
 			connection.end(function(err) {
 				console.log('connection closed!');	  
 			});
-		});		
+		});	
+			
 	},
 	execute : function(sql, callback){
 		getConnection(function(connection){

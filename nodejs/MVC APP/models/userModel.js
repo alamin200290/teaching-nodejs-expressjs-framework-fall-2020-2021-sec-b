@@ -20,7 +20,6 @@ module.exports ={
 		db.getResults(sql, function(results){
 			callback(results);
 		});
-
 	},
 	insert: function(user, callback){
 		var sql = "insert into user VALUES ('', '"+user.username+"' , '"+user.password+"' , '"+user.type+"')";

@@ -68,6 +68,19 @@ router.post('/delete/:id', (req, res)=>{
 	res.redirect('/home/userlist');
 })
 
+
+
+router.get('/search/:key', (req, res)=>{
+
+	var searchkey = req.params.key;
+
+	//database query
+	// response json send
+
+	//res.json({userlist: result});
+	//res.redirect('/home/12');
+})
+
 module.exports = router;
 
 
