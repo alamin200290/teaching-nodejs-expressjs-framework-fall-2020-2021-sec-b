@@ -7,14 +7,13 @@ const login			= require('./controller/login');
 const home			= require('./controller/home');
 const logout		= require('./controller/logout');
 const user			= require('./controller/user');
-const admin			= require('./controller/admin');
 const app 			= express();
 
 //config
 app.set('view engine', 'ejs');
 
 //middleware
-app.use('/abc', express.static('assets'));
+app.use('/xyz', express.static('assets'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(exSession({secret: 'my secret value', saveUninitialized: true, resave: false }));
 app.use(cookieParser());

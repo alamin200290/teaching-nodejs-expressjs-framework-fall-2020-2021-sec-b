@@ -3,8 +3,8 @@ const db = require('./db');
 module.exports ={
 
 	validate: function(user, callback){
-		var sql = "select * from user where username='"+user.username+"' and password='"+user.password+"'";
-		db.getResults(sql, function(results){
+		var sql = "select * from user where username=? and password=?";
+		db.getResults(sql, [user.username, user.password], function(results){
 			if(results.length > 0){
 				callback(true);
 			}else{
@@ -17,16 +17,14 @@ module.exports ={
 	},
 	getAll: function(callback){
 		var sql = "select * from user";
-		db.getResults(sql, function(results){
+		db.getResults(sql, null, function(results){
 			callback(results);
 		});
 	},
 	insert: function(user, callback){
-		var sql = "insert into user VALUES ('', '"+user.username+"' , '"+user.password+"' , '"+user.type+"')";
-		
-		//console.log(sql);
+		var sql = "insert into user VALUES (?, ?, ?, ?)";
 
-		db.execute(sql, function(status){
+		db.execute(sql, ['', user.username, user.password, user.type], function(status){
 			callback(status);
 		});
 	},
